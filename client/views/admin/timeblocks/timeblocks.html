@@ -1,0 +1,105 @@
+<template name="ManageTimeBlocks">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{#with catItem}}
+		  {{> ManageTimeBlocksView}}
+		{{/with}}
+	</div>
+</template>
+
+<template name="ManageTimeBlocksView">
+	<div id="admin-users-view" class="">
+		<h2 id="component-title">
+		   
+			 {{category.name}} - Manage Timeblocks
+
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-insert" class="form-group ">
+				<button type="submit" id="dataview-insert-button" class="btn btn-success">
+					<span class="fa fa-plus">
+					</span>
+					Add new
+				</button>
+			</div>
+		</form>
+		{{#if isEmpty}}
+		<div class="alert alert-info">
+			No items yet
+		</div>
+		{{else}}
+		  {{#if viewAsTable}}
+		  <div id="dataview-data">
+			 {{> ManageTimeBlocksViewTable}}
+		  </div>
+		  {{/if}}
+	   {{/if}}
+	</div>
+</template>
+
+<template name="ManageTimeBlocksViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+			   <th>
+			      &nbsp;					
+				</th>
+				<th>
+					Date
+				</th>
+				<th>
+					Start Time
+				</th>
+				<th>
+					End Time
+				</th>
+				<th>
+					Max Users
+				</th>
+				<th>
+					Wait List Max
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each tableItems}} {{> ManageTimeBlocksViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="ManageTimeBlocksViewTableItems">
+	<tr id="dataview-table-items-row">
+	   <td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+		<td>
+			{{timeblock.date}}
+		</td>
+		<td>
+			{{timeblock.start_time}}
+		</td>
+		<td>
+			{{timeblock.end_time}}
+		</td>
+		<td>
+			{{timeblock.max_users}}
+		</td>
+		<td>
+			{{timeblock.waitlist_max}}
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o {{editButtonClass}}" title="Delete">
+			</span>
+		</td>
+	</tr>
+</template>
+

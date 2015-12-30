@@ -1,0 +1,106 @@
+<template name="ManageTimeBlocksInsert">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> ManageTimeBlocksInsertInsertForm}}
+	</div>
+</template>
+
+<template name="ManageTimeBlocksInsertInsertForm">
+	<div id="admin-users-insert-insert-form" class="">
+		<h2 id="component-title">
+			Add new timeblock
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}				
+				
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group">
+				<label for="timeblock.date">
+					Date
+				</label>
+				<div class="input-div">
+<input type="text" name="timeblock.date" value="" class="form-control" id="datepicker" autofocus="autofocus" required="required" data-type="date">
+
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="timeblock.start_time">
+					Start Time
+				</label>
+				<div class="input-div">
+					<input type="text" name="timeblock.start_time" value="" class="form-control timepicker" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="timeblock.end_time">
+					End Time
+				</label>
+				<div class="input-div">
+					<input type="text" name="timeblock.end_time" value="" class="form-control timepicker" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-password">
+				<label for="timeblock.max_users">
+					Max Users
+				</label>
+				<div class="input-div">
+					<input type="text" id="maxUsers" name="timeblock.max_users" value="1" title="Number" class="form-control" data-type="integer" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-password">
+				<label for="timeblock.waitlist_max">
+					Wait List Max
+				</label>
+				<div class="input-div">
+					<input type="text" name="timeblock.waitlist_max" value="" title="Number or Zero" class="form-control" data-type="integer" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						<span class="fa fa-check">
+						</span>
+						Save
+					</button>
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

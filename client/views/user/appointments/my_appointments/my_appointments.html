@@ -1,0 +1,92 @@
+<template name="MyAppointments">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> MyAppointmentsView}}
+	</div>
+</template>
+
+<template name="MyAppointmentsView">
+	<div id="admin-users-view" class="">
+		<h2 id="component-title">
+			My Appointments
+		</h2>
+		{{#if isEmpty}}
+		<div class="alert alert-info">
+			No appointments yet
+		</div>
+		{{else}}
+	     {{#if viewAsTable}}
+		  <div id="dataview-data">
+			 {{> MyAppointmentsViewTable}}
+		  </div>
+		  {{/if}}
+		{{/if}}	
+	</div>
+</template>
+
+<template name="MyAppointmentsViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th>
+			      &nbsp;					
+				</th>
+				<th class="th-sortable" data-sort="category.name">
+					Category Name
+				</th>
+				<th class="th-sortable" data-sort="category.name">
+					Date
+				</th>
+				<th class="th-sortable" data-sort="category.name">
+					Start Time
+				</th>
+				<th class="th-sortable" data-sort="category.name">
+					End Time
+				</th>
+				<th class="th-sortable" data-sort="category.description">
+					Status
+				</th>
+				<td class="td-icon">
+			      &nbsp;
+		      </td>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-categories">
+			{{#each tableMyAppointments}} {{> MyAppointmentsViewTableAppointments}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="MyAppointmentsViewTableAppointments">
+	<tr id="dataview-table-categories-row">
+	   <td>
+			<span id="edit-button" class="fa fa-pencil" title="Edit">
+			</span>
+		</td>
+		<td>
+			{{catName}}
+		</td>
+		<td>
+			{{date}}
+		</td>
+		<td>
+			{{start_time}}
+		</td>
+		<td>
+			{{end_time}}
+		</td>
+		<td>
+			{{status}}
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o" title="Delete">
+			</span>
+		</td>
+	</tr>
+</template>
+

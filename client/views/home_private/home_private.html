@@ -1,0 +1,37 @@
+<template name="HomePrivate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<h2 id="page_title" class="pull-left">
+					Welcome {{userFullName}}!
+				</h2>
+				<div id="page_menu" class="pull-right">
+<br>				  {{#if isAdmin}}
+<ul>
+  <li><a href="{{pathFor 'admin.manage_items'}}"><span class="item-title">Manage Items</span></a></li>
+  <li id="menu-item-simple" class="{{menuItemClass 'admin'}}">
+	 <a href="{{pathFor 'admin'}}">
+		<span class="fa fa-wrench"></span><span class="item-title">&nbsp;Manage Users</span>
+	 </a>
+  </li>
+  <li><a href="{{pathFor 'admin.manage_categories'}}"><span class="item-title">Manage Categories</span></a></li>
+  <!--<li><a href="{{pathFor 'admin.manage_timeblocks'}}"><span class="item-title">Manage Time Blocks</span></a></li>-->
+  <li><a href="{{pathFor 'admin.manage_appointments'}}"><span class="item-title">Manage Appointments</span></a></li>
+</ul>				    
+				  
+				  {{else}}
+<ul>
+  <li class="{{menuItemClass 'user_settings'}}">
+	 <a href="{{pathFor 'user_settings'}}"><span class="fa fa-wrench"></span><span class="item-title">&nbsp;Update Profile</span></a>
+  </li>
+  <li><a href="{{pathFor 'user.my_appointments'}}"><span class="item-title">My Appointments</span></a></li>
+  <li><a href="{{pathFor 'user.book_appointments'}}"><span class="item-title">Book Appointments</span></a><p></p>
+  </li>
+</ul>
+				  {{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+

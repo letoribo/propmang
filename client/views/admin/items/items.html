@@ -1,0 +1,107 @@
+<template name="ManageItems">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> ManageItemsView}}
+	</div>
+</template>
+
+<template name="ManageItemsView">
+	<div id="admin-users-view" class="">
+		<h2 id="component-title">
+			Items
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-insert" class="form-group ">
+				<button type="submit" id="dataview-insert-button" class="btn btn-success">
+					<span class="fa fa-plus">
+					</span>
+					Add new
+				</button>
+			</div>
+	   </form>		
+		{{#if isEmpty}}
+		<div class="alert alert-info">
+			No items yet
+		</div>
+		{{else}}
+		  {{#if viewAsTable}}
+		  <div id="dataview-data">
+			 {{> ManageItemsViewTable}}
+		  </div>
+		  {{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="ManageItemsViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+			   <th>
+			      &nbsp;					
+				</th>
+				<th>
+					Item Name
+				</th>
+				<th>
+					Street Address
+				</th>
+				<th>
+					City
+				</th>
+				<th>
+					State
+				</th>
+				<th>
+					Zip
+				</th>
+				<th>
+					Contact Name
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each tableItems}} {{> ManageItemsViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="ManageItemsViewTableItems">
+	<tr id="dataview-table-items-row">
+	   <td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+		<td>
+			{{item.name}}
+		</td>
+		<td>
+			{{item.street_address1}}
+		</td>
+		<td>
+			{{item.city}}
+		</td>
+		<td>
+			{{item.state}}
+		</td>
+		<td>
+			{{item.zip}}
+		</td>
+		<td>
+			{{item.contact_name}}
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o {{editButtonClass}}" title="Delete">
+			</span>
+		</td>
+	</tr>
+</template>
+
