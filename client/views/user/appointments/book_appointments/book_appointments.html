@@ -34,6 +34,9 @@
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
 				<th>
+					Category Item Name
+				</th>
+				<th>
 					Category Name
 				</th>
 				<th>
@@ -67,6 +70,9 @@
 
 <template name="BookAppointmentsTimeblocksViewItems">
 	<tr id="dataview-table-items-row">
+	   <td>
+			{{catItemName}}
+		</td>
 		<td>
 			<a href="{{pathFor 'user.book_appointments.insert'}}">{{catName}}</a>
 		</td>

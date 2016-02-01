@@ -143,7 +143,7 @@ Meteor.methods({
 				throw new Meteor.Error(403, "Access denied.");
 			}
 		}
-
+      console.log(options);
 		var userOptions = {};
 		if(options.username) userOptions.username = options.username;
 		if(options.email) userOptions.email = options.email;
@@ -172,6 +172,7 @@ Meteor.methods({
 		if(password) {
 			Accounts.setPassword(userId, password);
 		}
+		console.log(userOptions);
 	},
 
 	"sendMail": function(options) {

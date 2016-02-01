@@ -46,6 +46,9 @@
 			      &nbsp;					
 				</th>
 				<th>
+					Item Name
+				</th>
+				<th>
 					Category Name
 				</th>
 				<th>
@@ -67,6 +70,9 @@
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
 			</span>
+		</td>
+		<td>
+			{{category.item_name}}
 		</td>
 		<td>
 			<span class="item-title"><a href="{{pathFor 'admin.manage_timeblocks'}}">{{category.name}}</a></span>

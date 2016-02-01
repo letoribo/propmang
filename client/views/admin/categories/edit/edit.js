@@ -13,9 +13,9 @@ Template.ManageCategoriesEdit.helpers({
 });
 
 Template.ManageCategoriesEditEditForm.rendered = function() {
-	
-
-	pageSession.set("manageCategoriesEditEditFormInfoMessage", "");
+	var item = this.data.admin_category.category.item_name;
+   Session.set('item', item);
+  	pageSession.set("manageCategoriesEditEditFormInfoMessage", "");
 	pageSession.set("manageCategoriesEditEditFormErrorMessage", "");
 
 	/*$(".input-group.date").each(function() {
@@ -110,12 +110,18 @@ Template.ManageCategoriesEditEditForm.events({
 	
 });
 
-Template.AdminUsersEditEditForm.helpers({
+Template.ManageCategoriesEditEditForm.helpers({
 	"infoMessage": function() {
 		return pageSession.get("manageCategoriesEditEditFormInfoMessage");
 	},
 	"errorMessage": function() {
 		return pageSession.get("manageCategoriesEditEditFormErrorMessage");
+	},
+	"items": function() {
+		return ["CollegeVista", "CanadaVista", "Palos Hills"];
+	},
+	"selected_item": function(value) {
+		var item = Session.get('item') == value ? 'selected' : '';
+		return item;
 	}
-	
 });

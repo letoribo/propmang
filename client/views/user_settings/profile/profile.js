@@ -13,8 +13,8 @@ Template.UserSettingsProfile.helpers({
 });
 
 Template.UserSettingsProfileEditForm.rendered = function() {
-	
-
+	var item = this.data.current_user_data.profile.item_name;
+   Session.set('item', item);
 	pageSession.set("userSettingsProfileEditFormInfoMessage", "");
 	pageSession.set("userSettingsProfileEditFormErrorMessage", "");
 
@@ -120,6 +120,12 @@ Template.UserSettingsProfileEditForm.helpers({
 	},
 	"errorMessage": function() {
 		return pageSession.get("userSettingsProfileEditFormErrorMessage");
-	}
-	
+	},
+	"items": function() {
+		return ["CollegeVista", "CanadaVista", "Palos Hills"];
+	},
+	"selected_item": function(value) {
+		var item = Session.get('item') == value ? 'selected' : '';
+		return item;
+	}	
 });

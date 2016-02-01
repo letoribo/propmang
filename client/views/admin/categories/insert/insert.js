@@ -120,6 +120,8 @@ Template.ManageCategoriesInsertInsertForm.helpers({
 	},
 	"errorMessage": function() {
 		return pageSession.get("ManageCategoriesInsertInsertFormErrorMessage");
-	}
-	
+	},
+	"items": function() {
+		return ["CollegeVista", "CanadaVista", "Palos Hills"];
+	}	
 });

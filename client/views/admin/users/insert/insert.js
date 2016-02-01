@@ -120,6 +120,8 @@ Template.AdminUsersInsertInsertForm.helpers({
 	},
 	"errorMessage": function() {
 		return pageSession.get("adminUsersInsertInsertFormErrorMessage");
-	}
-	
+	},
+	"items": function() {
+		return ["CollegeVista", "CanadaVista", "Palos Hills"];
+	}	
 });

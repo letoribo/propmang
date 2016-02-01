@@ -58,6 +58,7 @@ Meteor.methods({
 		}
 
   	  var categoryOptions = {};
+		if(options.category.item_name) categoryOptions.item_name = options.category.item_name;
 		if(options.category.name) categoryOptions.name = options.category.name;
 		if(options.category.description) categoryOptions.description = options.category.description;
 		//console.log("categoryOptions", categoryOptions);
@@ -71,6 +72,7 @@ Meteor.methods({
 		}
 		item.catId = catId;
 		var cat = TblCategory.findOne(catId);
+		item.catItemName = cat.category.item_name;
 		item.catName = cat.category.name;
 		item.catDesc = cat.category.description;
 		//console.log(item);
@@ -113,13 +115,14 @@ Meteor.methods({
         	 throw new Meteor.Error("There are no free spaces.", "Timeblock is full.");
 		  }
   	     item.catId = block.catId;
+  	     item.catItemName = block.catItemName;
   	     item.catName = block.catName;
   	     item.date = block.timeblock.date;
   	     item.start_time = block.timeblock.start_time;
   	     item.end_time = block.timeblock.end_time;
   	     item.blockId = blockId;
   	     item.status = blocksCount < Number(maxUsers) ? 'pending' : 'waitlist';
-  	     console.log(item);
+  	     //console.log(item);
   	     TblBlockuser.insert(item);
       }
       else {

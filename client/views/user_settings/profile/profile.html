@@ -27,12 +27,113 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-profile-name">
+			<div class="form-group">
 				<label for="profile.name">
-					Name
+					First Name
 				</label>
 				<div class="input-div">
 					<input type="text" name="profile.name" value="{{current_user_data.profile.name}}" class="form-control" autofocus="autofocus" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.last_name">
+					Last Name
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.last_name" value="{{current_user_data.profile.last_name}}" class="form-control" autofocus="autofocus" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.item_name">
+					Item Name
+				</label>
+				<div class="input-div">
+					<select name="profile.item_name" class="form-control" required="required">
+                   <option disabled="disabled" selected="selected">Select</option>
+                      {{#each items}}
+                         <option {{selected_item this}}>{{this}}</option>
+                      {{/each}}
+               </select>
+               <span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.street_address1">
+					Street Address1
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.street_address1" value="{{current_user_data.profile.street_address1}}" class="form-control" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.street_address2">
+					Street Address2
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.street_address2" value="{{current_user_data.profile.street_address2}}" class="form-control" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.unit">
+					Unit
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.unit" value="{{current_user_data.profile.unit}}" class="form-control" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.city">
+					City
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.city" value="{{current_user_data.profile.city}}" class="form-control" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.state">
+					State
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.state" value="{{current_user_data.profile.state}}" class="form-control" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-password">
+				<label for="profile.zip">
+					Zip
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.zip" value="{{current_user_data.profile.zip}}" class="form-control" data-type="integer" required="required">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -45,6 +146,18 @@
 				</label>
 				<div class="input-div">
 					<input type="text" name="profile.email" value="{{current_user_data.profile.email}}" class="form-control" required="required" data-type="email">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profile.phone">
+					Phone
+				</label>
+				<div class="input-div">
+					<input type="text" name="profile.phone" value="{{current_user_data.profile.phone}}" class="form-control" required="required">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
