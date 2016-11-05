@@ -1,5 +1,5 @@
 Template.HomePrivate.rendered = function() {
-  Session.set("yourID", Meteor.userId());
+
 };
 
 Template.HomePrivate.events({
@@ -14,6 +14,7 @@ Template.HomePrivate.helpers({
 
 var status = function(){
   var player = Users.findOne();
+  if(!player) return; 
   var isAdmin = _.isEqual(player.roles[0], "admin")
   return isAdmin;
 }
